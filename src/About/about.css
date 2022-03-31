@@ -1,0 +1,72 @@
+
+
+.slideshow-container {
+  position: relative;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0, .45);
+  margin-left: 40px;
+  flex-shrink: 2;
+  width: auto;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-size: cover;
+  padding-top: 66.67%;
+}
+
+/* Caption text */
+.each-slide span {
+  color: #f2f2f2;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+#about{
+  padding-bottom: 70px;
+  background-image: url('../../public/static/images/III_Who_Are_We/about_background.jpg');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 50%;
+}
+
+.container-about {
+  justify-content:space-around;
+  margin-left: 2rem;
+  flex-flow: row;
+}
+
+.child-about {
+  vertical-align: left;
+  position: relative;
+}
+
+.react-slideshow-container .default-nav {
+  background-color: #42a5f5
+}
+
+.react-slideshow-container .default-nav:hover {
+  background-color: #e3f2fd
+}
+
+
+@media only screen and (max-width: 1100px) {
+  .container-about {
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin: 0 1rem;
+  }
+
+  .slideshow-container {
+    width: auto;
+    margin:auto;
+  }
+
+  #about{
+    background: none;
+  }
+
+}

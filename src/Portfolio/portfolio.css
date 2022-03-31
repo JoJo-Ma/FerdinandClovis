@@ -1,0 +1,45 @@
+#portfolio {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#portfolio .container-flex {
+  padding-bottom: 70px;
+}
+
+.child-portfolio {
+  vertical-align: middle;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.child-portfolio img {
+  height:100px;
+  width:100px;
+}
+
+.view-all {
+  text-align: center;
+}
+
+#view-all-link {
+  width: 50px;
+  font-size: 22px;
+  text-transform: uppercase;
+  position:relative;
+  color: #1565c0;
+  padding: 10px;
+  border: 2px solid #1565c0;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: 250ms ease-in-out;
+}
+
+#view-all-link:hover {
+  color: white;
+  border: 1px solid #1565c0;
+  background-color: #1565c0;
+}

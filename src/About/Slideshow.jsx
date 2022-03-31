@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from 'react';
+import { Slide } from 'react-slideshow-image';
+
+import "react-slideshow-image/dist/styles.css"
+import './about.css'
+import data from './data.js'
+
+const Slideshow = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+
+    const changeWidth = () => {
+      setScreenWidth(window.innerWidth);
+    }
+    console.log(screenWidth);
+    window.addEventListener('resize', changeWidth)
+
+    return () => {
+    window.removeEventListener('resize', changeWidth)
+    }
+
+  }, [])
+
+  const style = screenWidth > 1100 ? { maxWidth : '750px'} : { maxWidth : 0.9 * screenWidth + 'px', height: (0.9 * screenWidth / 1.5) + "px"}
+
+
+  return (
+    <div className="slideshow-container child-about"
+      style={style}>
+      <Slide easing="ease">
+        {
+          data.map((el,index) => {
+            return <div className="each-slide" key={index}>
+              <div style={{'backgroundImage': `url(${el.img})`}}>
+                <span>{el.text}</span>
+              </div>
+            </div>
+          })
+        }
+      </Slide>
+    </div>
+  )
+}
+
+export default Slideshow;

@@ -1,0 +1,71 @@
+#expertise {
+  padding: 40px 0px;
+  background-color: #e3f2fd;
+}
+
+.child-expertise {
+  vertical-align: middle;
+  position: relative;
+  height: 270px;
+  width: 330px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0, .45);
+}
+
+.child-expertise img {
+  /* transform-origin: 0 0; */
+  transition: transform .5s, brightness 1s ease;
+  filter: brightness(70%);
+}
+
+.child-expertise img:hover {
+  transform: scale(1.2);
+  filter: brightness(100%);
+}
+
+.child-expertise-textblock {
+  text-align: center;
+  position: absolute;
+  color: white;
+  top: 50%;
+  margin: 0;
+  transform: translate(0, -50%);
+  text-shadow: 2px 2px black;
+}
+
+.child-expertise-textblock h3 {
+  margin-bottom: 40px;
+}
+
+.child-expertise-textblock p {
+  margin: 0px 10px;
+}
+
+blockquote {
+    border:none;
+    margin-bottom:-30px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+#expertise h2 {
+  line-height: 0.5;
+  padding-bottom: 20px;
+}
+
+#expertise h2:before {
+content: open-quote;
+font-weight: bold;
+font-size:100px;
+color: #1565c0;
+position: relative;
+top: 40px;
+}
+#expertise h2:after {
+content: close-quote;
+font-weight: bold;
+font-size:100px;
+color: #1565c0;
+position: relative;
+top: 40px
+}

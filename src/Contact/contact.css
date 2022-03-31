@@ -1,0 +1,62 @@
+#subscribe_form {
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.form-el, .submitButton {
+  height: 40px;
+  vertical-align: middle;
+  border: 1px solid rgba(229, 229, 229, 1);
+  background-color:  white;
+  position: relative;
+  padding: 0px;
+  width: auto;
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+#contact {
+  background-color: #1565c0;
+  padding: 70px 0 70px 0;
+}
+
+.form-el {
+  margin-right: 20px;
+}
+
+.submitButton {
+  min-width: 150px;
+  transition: 250ms ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: rgba(229, 229, 229, 1);
+  color: black;
+}
+
+.submitButton:active {
+  border: 1px solid white;
+  background-color: rgba(229, 229, 229, 1);
+  color: white;
+}
+
+.message {
+  flex-grow: 2;
+}
+
+@media only screen and (max-width: 750px) {
+  #subscribe_form {
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-el {
+    margin-right: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
