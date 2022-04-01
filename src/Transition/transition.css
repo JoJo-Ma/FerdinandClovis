@@ -2,11 +2,17 @@
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  height: 600px;
+  height: 700px;
   text-align: center;
   background-color: black;
   text-transform: uppercase;
 }
+
+/* .hidden {
+  background-image: linear-gradient(to top, rgba(245, 246, 252, 0), black),url('../../public/static/images/III_Who_Are_We/hidden.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+} */
 
 .transition-alt #quote1 {
   margin-top: 20px;
@@ -26,7 +32,7 @@
 }
 
 .transition-alt i {
-  background-color:  rgba(250, 122, 148, 1);
+  background-color:  #1565c0;
   font-size: 5.3rem;
   color: white;
   font-family: "Snell Roundhand Script";

@@ -45,11 +45,12 @@
 }
 
 .react-slideshow-container .default-nav {
-  background-color: #42a5f5
+  background-color: #1565c0;
 }
 
 .react-slideshow-container .default-nav:hover {
-  background-color: #e3f2fd
+  background-color: #fff;
+  color: #1565c0;
 }
 
 

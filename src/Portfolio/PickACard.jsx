@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 import data from './data.js'
 import './card.css'
@@ -37,6 +39,13 @@ const PickACard = () => {
         <div className="resetButton" onClick={reset}>
           <a>Reset</a>
         </div>
+      }
+      {
+        picked.length > 0
+        &&
+        <a href="#card-deck" className="arrowDown">
+          <FontAwesomeIcon icon={faArrowDown} />
+        </a>
       }
     </div>
     <div className="container-flex youtube" id="card-deck">
