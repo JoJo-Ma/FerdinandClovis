@@ -28,11 +28,11 @@
 
 #view-all-link {
   position:relative;
-  background-color: #fff;
+  background-color: #1565c0;
   border: 0 solid #1565c0;
   border-radius: 1.5rem;
   box-sizing: border-box;
-  color: #1565c0;
+  color: #ffff;
   text-transform: uppercase;
   width: 200px;
   cursor: pointer;
@@ -51,8 +51,9 @@
 }
 
 #view-all-link:hover {
-  background-color: #1565c0;
-  color: #fff;
+  background-color: #ffff;
+  color: #1565c0;
+  border : 1px;
 }
 
 @media (min-width: 768px) {

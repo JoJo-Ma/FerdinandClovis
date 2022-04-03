@@ -13,6 +13,14 @@ const NavBar = () => {
     setToggleMenu(!toggleMenu)
   }
 
+  const classNav =
+    toggleMenu
+    ?
+    'visible'
+    :
+    'hidden'
+
+
   useEffect(() => {
 
     const changeWidth = () => {
@@ -30,31 +38,31 @@ const NavBar = () => {
   return (
     <nav id="navigationBar">
       {
-        (toggleMenu || screenWidth > 450) && (
-          <ul  id="sideNav">
-            <li>
+        (true) && (
+          <ul  id="sideNav" className={classNav}>
+            <li onClick={toggleNav}>
               <a href="">HOME</a>
             </li>
-            <li>
+            <li onClick={toggleNav}>
               <a href="#about">ABOUT US</a>
             </li>
-            <li>
+            <li onClick={toggleNav}>
               <a href="#expertise">WHAT WE DO</a>
             </li>
-            <li>
+            <li onClick={toggleNav}>
               <a href="#portfolio">CLIENTS & PORTFOLIO</a>
             </li>
-            <li>
+            <li onClick={toggleNav}>
               <a href="#contact">CONTACT US</a>
             </li>
           </ul>
         )
       }
-      <div className="button">
+      <div className="button"  onClick={toggleNav}>
         { toggleMenu ?
-          <FontAwesomeIcon icon={faAngleUp} onClick={toggleNav} />
+          <FontAwesomeIcon icon={faAngleUp}  />
           :
-          <FontAwesomeIcon icon={faBars} onClick={toggleNav} />
+          <FontAwesomeIcon icon={faBars} />
          }
       </div>
 

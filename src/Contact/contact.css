@@ -12,10 +12,12 @@
   border: 1px solid rgba(229, 229, 229, 1);
   background-color:  white;
   position: relative;
-  padding: 0px;
+  padding: 2px;
   width: auto;
   flex-grow: 1;
   font-size: 16px;
+  letter-spacing: 1px;
+  text-indent: 10px;
 }
 
 #contact {
@@ -26,6 +28,7 @@
 .form-el {
   margin-right: 20px;
 }
+
 
 .submitButton {
   min-width: 150px;
@@ -47,7 +50,20 @@
   flex-grow: 2;
 }
 
-@media only screen and (max-width: 750px) {
+textarea {
+  resize: vertical;
+}
+
+.message > label {
+  padding-top : 7px;
+}
+
+.form-el::placeholder {
+  padding-top: 7px;
+}
+
+
+@media only screen and (max-width: 850px) {
   #subscribe_form {
     flex-flow: column wrap;
     justify-content: space-between;

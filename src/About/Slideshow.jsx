@@ -13,14 +13,14 @@ const Slideshow = () => {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
     }
-    console.log(screenWidth);
     window.addEventListener('resize', changeWidth)
+    console.log(screenWidth);
 
     return () => {
     window.removeEventListener('resize', changeWidth)
     }
 
-  }, [])
+  }, [screenWidth])
 
   const style = screenWidth > 1100 ? { maxWidth : '750px'} : { maxWidth : 0.9 * screenWidth + 'px', height: (0.9 * screenWidth / 1.5) + "px"}
 
