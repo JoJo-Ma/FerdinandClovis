@@ -14,7 +14,6 @@ const Slideshow = () => {
       setScreenWidth(window.innerWidth);
     }
     window.addEventListener('resize', changeWidth)
-    console.log(screenWidth);
 
     return () => {
     window.removeEventListener('resize', changeWidth)

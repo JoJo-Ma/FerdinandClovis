@@ -1,31 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+
+import emailjsCreds from './emailjsCreds.js'
 
 import './contact.css'
 
 const Contact = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const [emailStatus, setEmailStatus] = useState(null)
+  const form = useRef();
 
-  const handleName = (e) => {
-    setName(e.target.value)
-  }
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
-  const handleMessage = (e) => {
-    setMessage(e.target.value)
-  }
+  useEffect(() => {
+    if (emailStatus === null) {
+      return
+    }
+    const timer = setTimeout(() => setEmailStatus(null), 5000)
+    return () => clearTimeout(timer)
+  }, [emailStatus])
+
+  const sendEmail = (e) => {
+  e.preventDefault();
+
+  console.log(form.current);
+  emailjs.sendForm(emailjsCreds.serviceId, emailjsCreds.templateId, form.current, emailjsCreds.userId)
+    .then((result) => {
+        console.log(result.text);
+        setEmailStatus("SENT")
+    }, (error) => {
+        console.log(error.text);
+        setEmailStatus("ERROR")
+    });
+  };
 
   return (
     <div id="contact">
       <h1>Get in touch!</h1>
-      <form id="subscribe_form" method="post">
-        <input type="text" className="form-el" placeholder="Name" onChange = { (e) => handleName(e)}/>
-        <input type="email" className="form-el" placeholder="Email address" onChange = { (e) => handleEmail(e)} />
-        <textarea className="form-el message" rows="3" placeholder="Message" onChange = { (e) => handleMessage(e)} ></textarea>
+      <form ref={form} id="subscribe_form" method="post" onSubmit={sendEmail}>
+        <input type="text" className="form-el" name="user_name" placeholder="Name"/>
+        <input type="email" className="form-el" name="user_email" placeholder="Email address" />
+        <textarea className="form-el message" name="message" rows="3" placeholder="Message" ></textarea>
         <button type="submit" className="submitButton">Send</button>
       </form>
+
+      { emailStatus === "SENT" && <p className="alertEmail">Sent!</p> }
+      { emailStatus === "ERROR" && <p className="alertEmail">Error!</p> }
+
+
 
     </div>
   )
