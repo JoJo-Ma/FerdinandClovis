@@ -28,8 +28,8 @@
 
 #view-all-link {
   position:relative;
-  background-color: #1565c0;
-  border: 0 solid #1565c0;
+  background-color: var(--color2);
+  border: 0 solid var(--color2);
   border-radius: 1.5rem;
   box-sizing: border-box;
   color: #ffff;
@@ -52,7 +52,7 @@
 
 #view-all-link:hover {
   background-color: #ffff;
-  color: #1565c0;
+  color: var(--color2);
   border : 1px;
 }
 

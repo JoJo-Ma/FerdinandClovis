@@ -1,5 +1,5 @@
 .header {
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, -1), #64b5f6),url('../../public/static/images/I_Header/header.jpg');
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, -1), var(--color1)),url('../../public/static/images/I_Header/header.jpg');
   min-height: calc(100vh - 60px);
   background-repeat: no-repeat;
   background-position: center center;
@@ -26,7 +26,7 @@
 
 @media only screen and (max-width: 767px) {
   .header {
-    background-image: linear-gradient(to bottom, rgba(245, 246, 252, -1), #64b5f6),url('../../public/static/images/I_Header/header_small.jpg');
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, -1), var(--color1)),url('../../public/static/images/I_Header/header_small.jpg');
     background-repeat: repeat-x;
     background-position: calc(50% - 150px) 50%;
   }

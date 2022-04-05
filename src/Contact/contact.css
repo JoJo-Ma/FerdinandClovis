@@ -9,7 +9,7 @@
 .form-el, .submitButton {
   height: 40px;
   vertical-align: middle;
-  border: 1px solid rgba(229, 229, 229, 1);
+  border: 1px solid var(--color3);
   background-color:  white;
   position: relative;
   padding: 2px;
@@ -36,13 +36,13 @@
 }
 
 .submitButton:hover {
-  background-color: rgba(229, 229, 229, 1);
+  background-color: var(--color3);
   color: black;
 }
 
 .submitButton:active {
   border: 1px solid white;
-  background-color: rgba(229, 229, 229, 1);
+  background-color: var(--color3);
   color: white;
 }
 

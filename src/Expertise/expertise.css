@@ -1,6 +1,6 @@
 #expertise {
   padding: 40px 0px;
-  background-color: #e3f2fd;
+  background-color: var(--color5);
 }
 
 .child-expertise {
@@ -57,7 +57,7 @@ blockquote {
 content: open-quote;
 font-weight: bold;
 font-size:100px;
-color: #1565c0;
+color: var(--color2);
 position: relative;
 top: 40px;
 }
@@ -65,7 +65,7 @@ top: 40px;
 content: close-quote;
 font-weight: bold;
 font-size:100px;
-color: #1565c0;
+color: var(--color2);
 position: relative;
 top: 40px
 }

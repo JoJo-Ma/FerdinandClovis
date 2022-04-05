@@ -32,7 +32,7 @@
 }
 
 .transition-alt i {
-  background-color:  #1565c0;
+  background-color:  var(--color2);
   font-size: 5.3rem;
   color: white;
   font-family: "Snell Roundhand Script";
