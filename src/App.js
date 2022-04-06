@@ -1,24 +1,29 @@
 import './App.css';
-import NavBar from './NavBar/NavBar'
-import Header from './Header/Header'
-import About from './About/About'
-import Expertise from './Expertise/Expertise'
-import Transition from './Transition/Transition'
-import Portfolio from './Portfolio/Portfolio'
-import Contact from './Contact/Contact'
-import Footer from './Footer/Footer'
+import Home from './Home'
+import All from './All'
+
+
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Header />
-      <About />
-      <Expertise />
-      <Transition />
-      <Portfolio />
-      <Contact />
-      <Footer />
+      <Router>
+        <>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/all" element={<All />}/>
+          </Routes>
+        </>
+      </Router>
     </div>
   );
 }

@@ -140,6 +140,11 @@
   touch-action: manipulation;
 }
 
+.resetButton p {
+  margin:0;
+  padding: 0;
+}
+
 .resetButton:hover {
   background-color: var(--color2);
   color: #fff;

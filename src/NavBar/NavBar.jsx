@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom"
+import { HashLink } from "react-router-hash-link"
 
 import './navbar.css'
 
@@ -41,19 +43,19 @@ const NavBar = () => {
         (true) && (
           <ul  id="sideNav" className={classNav}>
             <li onClick={toggleNav}>
-              <a href="">HOME</a>
+              <Link to="/">HOME</Link>
             </li>
             <li onClick={toggleNav}>
-              <a href="#about">ABOUT US</a>
+              <HashLink smooth to="/#about">ABOUT US</HashLink>
             </li>
             <li onClick={toggleNav}>
-              <a href="#expertise">WHAT WE DO</a>
+              <HashLink smooth to="/#expertise">WHAT WE DO</HashLink>
             </li>
             <li onClick={toggleNav}>
-              <a href="#portfolio">CLIENTS & PORTFOLIO</a>
+              <HashLink smooth to="/#portfolio">CLIENTS & PORTFOLIO</HashLink>
             </li>
             <li onClick={toggleNav}>
-              <a href="#contact">CONTACT US</a>
+              <HashLink smooth to="/#contact">CONTACT US</HashLink>
             </li>
           </ul>
         )

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Slide } from 'react-slideshow-image';
 
+import LazyBackroundImage from '../util/LazyBackroundImage'
+
 import "react-slideshow-image/dist/styles.css"
 import './about.css'
 import data from './data.js'
@@ -31,9 +33,9 @@ const Slideshow = () => {
         {
           data.map((el,index) => {
             return <div className="each-slide" key={index}>
-              <div style={{'backgroundImage': `url(${el.img})`}}>
+              <LazyBackroundImage source={el.img} placeholder={el.imgPlaceholder} >
                 <span>{el.text}</span>
-              </div>
+              </LazyBackroundImage>
             </div>
           })
         }

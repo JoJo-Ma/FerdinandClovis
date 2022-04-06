@@ -45,6 +45,7 @@
 }
 
 .container-footer {
+  padding: 2rem 0;
   justify-content: space-around;
   background-color: black;
   color: rgba(229,229,229,1);

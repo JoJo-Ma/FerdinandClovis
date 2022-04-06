@@ -1,4 +1,6 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 import data from './data.js'
 
@@ -11,7 +13,7 @@ const Logos = () => {
           data.companyLogos.map(logo => {
             return (
               <div className="child-portfolio" key={logo.index}>
-                <img src={logo.img} alt={logo.alt} />
+                <LazyLoadImage src={logo.img} alt={logo.alt} effect="opacity" />
               </div>
             )
           })

@@ -27,7 +27,7 @@
 
 #about{
   padding-bottom: 70px;
-  background-image: url('../../public/static/images/III_Who_Are_We/about_background.jpg');
+  /* background-image: url('../../public/static/images/III_Who_Are_We/about_background.jpg'); */
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 50%;
@@ -67,7 +67,7 @@
   }
 
   #about{
-    background: none;
+    background-size: 0%;
   }
 
 }

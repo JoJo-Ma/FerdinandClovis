@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 import data from './data.js'
 import './card.css'
@@ -16,10 +18,6 @@ const PickACard = () => {
     setDeck(deck.filter(card => card.index !== index))
   }
 
-  const handleClickUnpick = (index) => {
-    console.log(index);
-  }
-
   const reset = () => {
     setDeck(data.cards)
     setPicked([])
@@ -30,14 +28,15 @@ const PickACard = () => {
     <div className="pick-a-card">
       <h3>Find Ferdinand on the web</h3>
       {
-        deck.length != 0
+        deck.length !== 0
         ?
         deck.map((card) => {
-          return <img className='pick-a-card-child' key={card.index} id={`pick-a-card-child${card.index}`} src={card.back} alt="Ferdinand Clovis" onClick={() => handleClickPick(card.index)} />
+          return <LazyLoadImage className='pick-a-card-child' key={card.index} id={`pick-a-card-child${card.index}`} src={card.back} effect="opacity" alt="Ferdinand Clovis" onClick={() => handleClickPick(card.index)} />
+
         })
         :
         <div className="resetButton" onClick={reset}>
-          <a>Reset</a>
+          <p>Reset</p>
         </div>
       }
       {
@@ -58,8 +57,8 @@ const PickACard = () => {
         {
           picked.reverse().map((card) => {
           return   <div className="child-portfolio-videos new-item">
-              <img className="child-portfolio-videos-front card" src={card.back} alt="Ferdinand Clovis" />
-              <img className="child-portfolio-videos-back card" src={card.front} alt="Backside of Flexbox playing card" />
+              <LazyLoadImage className="child-portfolio-videos-front card" src={card.back} alt="Ferdinand Clovis" />
+              <LazyLoadImage className="child-portfolio-videos-back card" effect="opacity" src={card.front} alt="Backside of Flexbox playing card" />
               <a href={card.ref} rel="noopener noreferrer" target="_blank" className="child-portfolio-textblock">{card.caption}</a>
             </div>
           })
