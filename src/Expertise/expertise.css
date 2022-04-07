@@ -15,11 +15,12 @@
 
 .child-expertise img {
   /* transform-origin: 0 0; */
-  transition: transform .5s, brightness 1s ease;
+  transition: transform .5s, brightness 1s ease !important;
+  transform: scale(1.0);
   filter: brightness(70%);
 }
 
-.child-expertise:hover > img {
+.child-expertise:hover img {
   transform: scale(1.2);
   filter: brightness(100%);
 }

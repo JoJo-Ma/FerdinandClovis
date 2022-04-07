@@ -15,7 +15,7 @@ const Expertise = () => {
           data.map((el, index) => {
             return (
               <div className="child-expertise" key={index}>
-                  <LazyLoadImage src={el.img} alt={el.header} placeholderSrc={el.imgPlaceholder} effect="blur" />
+                  <LazyLoadImage className="img" src={el.img} alt={el.header} placeholderSrc={el.imgPlaceholder} effect="blur" />
                   <div className="child-expertise-textblock">
                     <h3>{el.header}</h3>
                     <p>{el.text}</p>

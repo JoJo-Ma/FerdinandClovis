@@ -21,6 +21,10 @@ body {
   line-height: 1.625;
 }
 
+textarea {
+  font-family: "Josefin Sans",comic;
+}
+
 
 h1 {
   margin-left: 2rem;
