@@ -36,7 +36,7 @@ const PickACard = () => {
         })
         :
         <div className="resetButton" onClick={reset}>
-          <p>Reset</p>
+          <p>Play again!</p>
         </div>
       }
       {
@@ -57,7 +57,7 @@ const PickACard = () => {
         {
           picked.reverse().map((card) => {
           return   <div className="child-portfolio-videos new-item">
-              <LazyLoadImage className="child-portfolio-videos-front card" src={card.back} alt="Ferdinand Clovis" />
+              <LazyLoadImage className="child-portfolio-videos-front card" src={card.back} effect="opacity" alt="Ferdinand Clovis" />
               <LazyLoadImage className="child-portfolio-videos-back card" effect="opacity" src={card.front} alt="Backside of Flexbox playing card" />
               <a href={card.ref} rel="noopener noreferrer" target="_blank" className="child-portfolio-textblock">{card.caption}</a>
             </div>

@@ -1,34 +1,71 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faWhatsapp, faYoutube, faInstagram, faLinkedin, faStrava } from "@fortawesome/free-brands-svg-icons"
-
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import './footer.css'
 
+const whatsappContactImgUrl = "/static/images/whatsapp_contact.jpg"
+
+
 const Footer = () => {
+  const modalRef = useRef(null)
+
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (modalRef.current && modalRef.current == event.target) {
+        modalRef.current.style.display = "none"
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef]);
+
+  const openModal = () => {
+    modalRef.current.style.display = "block"
+  }
+  const closeModal = () => {
+    modalRef.current.style.display = "none"
+  }
+
   return (
+    <>
+      <div className="container-flex container-footer">
+        <div className="child-footer">
+          <img src={'/static/images/I_Header/signature.png'} alt="Ferdinand Clovis" id="signature" />
+        </div>
+        <div className="child-footer" id="houdini-quote">
+          <h5><em>"Keep up your enthusiasm! There is nothing more contagious than exuberant enthusiasm."</em><br /></h5>
+          <h6>- Harry Houdini</h6>
+        </div>
+        <div className="child-footer" id="social-media">
+          <h5>Follow Ferdinand on social media</h5>
+          <ul>
+            <li><a className="social-media-el" onClick={openModal}><FontAwesomeIcon icon={faWhatsapp} className="icon" /><p>Whatsapp</p></a></li>
+            <li><a className="social-media-el" href="https://www.youtube.com/channel/UCaqZexnOgRg9lpsYfV6PcxQ"><FontAwesomeIcon icon={faYoutube} className="icon" /><p>Youtube</p></a></li>
+            <li><a href="https://www.instagram.com/ferdinand_clovis/?hl=en" className="social-media-el"><FontAwesomeIcon icon={faInstagram} className="icon" /><p>Instagram</p></a></li>
+            <li><a href="https://www.facebook.com/FerdinandClovis/" className="social-media-el"><FontAwesomeIcon icon={faFacebook} className="icon" /><p>Facebook</p></a></li>
+            <li><a href="https://hk.linkedin.com/in/ferdinandclovis" className="social-media-el"><FontAwesomeIcon icon={faLinkedin} className="icon" /><p>Linkedin</p></a></li>
+            <li><a href="https://www.strava.com/athletes/34867518" className="social-media-el"><FontAwesomeIcon icon={faStrava} className="icon" /><p>Strava</p></a></li>
+          </ul>
+        </div>
 
-    <div className="container-flex container-footer">
-      <div className="child-footer">
-        <img src={'/static/images/I_Header/signature.png'} alt="Ferdinand Clovis" id="signature" />
       </div>
-      <div className="child-footer" id="houdini-quote">
-        <h5><em>"Keep up your enthusiasm! There is nothing more contagious than exuberant enthusiasm."</em><br /></h5>
-        <h6>- Harry Houdini</h6>
+      <div ref={modalRef} className="modal-whatsapp">
+        <div className="modal-whatsapp-content">
+          <div className="modal-whatsapp-icon" ><FontAwesomeIcon icon={faClose} className="icon" onClick={closeModal}/></div>
+          <LazyLoadImage effect="opacity" src={whatsappContactImgUrl} alt="QR code whatsapp" className="modal-whatsapp-img" />
+        </div>
       </div>
-      <div className="child-footer" id="social-media">
-        <h5>Follow Ferdinand on social media</h5>
-        <ul>
-          <li><FontAwesomeIcon icon={faWhatsapp} className="icon" /><div className="social-media-el"><a>Whatsapp</a></div></li>
-          <li><FontAwesomeIcon icon={faYoutube} className="icon" /><div className="social-media-el"><a>Youtube</a></div></li>
-          <li><FontAwesomeIcon icon={faInstagram} className="icon" /><div className="social-media-el"><a>Instagram</a></div></li>
-          <li><FontAwesomeIcon icon={faFacebook} className="icon" /><div className="social-media-el"><a>Facebook</a></div></li>
-          <li><FontAwesomeIcon icon={faLinkedin} className="icon" /><div className="social-media-el"><a>Linkedin</a></div></li>
-          <li><FontAwesomeIcon icon={faStrava} beat className="icon" /><div className="social-media-el"><a>Strava</a></div></li>
-        </ul>
-      </div>
-
-    </div>
+    </>
   )
 }
 

@@ -11,6 +11,7 @@
   overflow: hidden;
   margin-bottom: 20px;
   box-shadow: 0 .5rem 1rem rgba(0,0,0, .45);
+  cursor: pointer;
 }
 
 .child-expertise img {
@@ -26,11 +27,11 @@
 }
 
 .child-expertise-textblock {
-  text-align: center;
+  text-align: justify;
+  width: 100%;
   position: absolute;
   color: white;
   top: 50%;
-  margin: 0;
   transform: translate(0, -50%);
   text-shadow: 2px 2px black;
 }
@@ -41,7 +42,14 @@
 
 .child-expertise-textblock p {
   margin: 0px 10px;
+  opacity: 0;
+  position:absolute;
 }
+.visible {
+  opacity: 1;
+  transition: opacity 0.3s, position 0.3s;
+}
+
 
 blockquote {
     border:none;
@@ -69,4 +77,11 @@ font-size:100px;
 color: var(--color2);
 position: relative;
 top: 40px
+}
+
+@media only screen and (max-width: 750px){
+  .child-expertise:hover img {
+    transform: scale(1.2);
+    filter: brightness(70%);
+  }
 }

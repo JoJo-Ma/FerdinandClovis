@@ -19,6 +19,7 @@
 /* Caption text */
 .each-slide span {
   color: white;
+  visibility: hidden;
   font-size: 16px;
   width: 100%;
   text-align: center;
@@ -44,8 +45,16 @@
   position: relative;
 }
 
+
+
 .react-slideshow-container .default-nav {
   background-color: var(--color2);
+  opacity: 0;
+  transition: ease-in opacity 0.1s;
+}
+
+.react-slideshow-container:hover .default-nav {
+  opacity: 1;
 }
 
 .react-slideshow-container .default-nav:hover {

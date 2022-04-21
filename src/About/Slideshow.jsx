@@ -35,6 +35,7 @@ const Slideshow = () => {
             return <div className="each-slide" key={index}>
               <LazyBackroundImage source={el.img} placeholder={el.imgPlaceholder} >
                 <span>{el.text}</span>
+                <span className="placeholder">placeholder</span>
               </LazyBackroundImage>
             </div>
           })

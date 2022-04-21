@@ -4,28 +4,28 @@ export default {
       front: "/static/images/V_Portfolio/youtube2.png",
       back: "static/images/V_Portfolio/back.png",
       ref: "https://youtu.be/-gXScXUrzOE",
-      caption: 'Ferdinand Magician, HK 2017',
+      caption: 'Street Magic',
       index: 1
     },
     {
       front: "/static/images/V_Portfolio/youtube2.png",
       back: "/static/images/V_Portfolio/back.png",
       ref: "https://youtu.be/6mZIkBIsTjs",
-      caption: '24 hours in Paris (2018)',
+      caption: '24h in Paris',
       index: 2
     },
     {
       front: "/static/images/V_Portfolio/youtube2.png",
       back: "static/images/V_Portfolio/back.png",
-      ref: "https://youtu.be/_M_KOaLFxJ0",
-      caption: 'GRAND PRIX VIE HONG KONG',
+      ref: "https://www.youtube.com/watch?v=YRokfx8_k9I",
+      caption: 'Le Voyage',
       index: 3
     },
     {
       front: "/static/images/V_Portfolio/scmp.png",
       back: "static/images/V_Portfolio/back.png",
       ref: "https://www.scmp.com/sport/outdoor/article/3120195/reverse-hong-kong-trail-unsupported-record-set-magician-showing-trick",
-      caption: 'Reverse Hong Kong Trail unsupported record set by magician',
+      caption: 'Unsupported record set by magician',
       index: 4
     },
     {
@@ -36,17 +36,17 @@ export default {
       index: 5
     },
     {
-      front: '/static/images/V_Portfolio/clockenflap.png',
+      front: '/static/images/V_Portfolio/youtube2.png',
       back: '/static/images/V_Portfolio/back.png',
-      ref: "https://www.clockenflap.com/content/ferdinand",
-      caption: 'Clockenflap introduction',
+      ref: "https://www.youtube.com/watch?v=go_wNUATYnI",
+      caption: 'Typhoon show',
       index: 6
     },
     {
-      front: '/static/images/V_Portfolio/zoom.png',
+      front: '/static/images/V_Portfolio/youtube2.png',
       back: '/static/images/V_Portfolio/back.png',
-      ref: "https://us02web.zoom.us/rec/share/zf4uyEGXUhL8-TAQbtkcdWPka0Nr5KdqN4LlcS8OzdQSWsplBerkBJ47hrKz07zn.9Opv-Pwagt3yc2Bf",
-      caption: 'Webinar on trail running',
+      ref: "https://www.youtube.com/watch?v=3G7n1YAVytw&t=16s",
+      caption: 'Snap Run',
       index: 7
     },
   ],
