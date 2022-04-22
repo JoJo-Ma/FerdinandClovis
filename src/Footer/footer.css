@@ -18,7 +18,7 @@
   list-style: none;
 }
 
-#social-media a {
+#social-media .social-media-el {
   color:inherit;
   text-decoration: none;
   list-style: none;
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-#social-media li a {
+#social-media li .social-media-el {
   float: center;
 }
 

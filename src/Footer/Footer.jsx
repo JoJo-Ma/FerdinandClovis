@@ -17,7 +17,7 @@ const Footer = () => {
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event) {
-      if (modalRef.current && modalRef.current == event.target) {
+      if (modalRef.current && modalRef.current === event.target) {
         modalRef.current.style.display = "none"
       }
     }
@@ -49,12 +49,12 @@ const Footer = () => {
         <div className="child-footer" id="social-media">
           <h5>Follow Ferdinand on social media</h5>
           <ul>
-            <li><a className="social-media-el" onClick={openModal}><FontAwesomeIcon icon={faWhatsapp} className="icon" /><p>Whatsapp</p></a></li>
-            <li><a className="social-media-el" href="https://www.youtube.com/channel/UCaqZexnOgRg9lpsYfV6PcxQ"><FontAwesomeIcon icon={faYoutube} className="icon" /><p>Youtube</p></a></li>
-            <li><a href="https://www.instagram.com/ferdinand_clovis/?hl=en" className="social-media-el"><FontAwesomeIcon icon={faInstagram} className="icon" /><p>Instagram</p></a></li>
-            <li><a href="https://www.facebook.com/FerdinandClovis/" className="social-media-el"><FontAwesomeIcon icon={faFacebook} className="icon" /><p>Facebook</p></a></li>
-            <li><a href="https://hk.linkedin.com/in/ferdinandclovis" className="social-media-el"><FontAwesomeIcon icon={faLinkedin} className="icon" /><p>Linkedin</p></a></li>
-            <li><a href="https://www.strava.com/athletes/34867518" className="social-media-el"><FontAwesomeIcon icon={faStrava} className="icon" /><p>Strava</p></a></li>
+            <li><div className="social-media-el" onClick={openModal}><FontAwesomeIcon icon={faWhatsapp} className="icon" /><p>Whatsapp</p></div></li>
+            <li><a className="social-media-el" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCaqZexnOgRg9lpsYfV6PcxQ"><FontAwesomeIcon icon={faYoutube} className="icon" /><p>Youtube</p></a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ferdinand_clovis/?hl=en" className="social-media-el"><FontAwesomeIcon icon={faInstagram} className="icon" /><p>Instagram</p></a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/FerdinandClovis/" className="social-media-el"><FontAwesomeIcon icon={faFacebook} className="icon" /><p>Facebook</p></a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://hk.linkedin.com/in/ferdinandclovis" className="social-media-el"><FontAwesomeIcon icon={faLinkedin} className="icon" /><p>Linkedin</p></a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.strava.com/athletes/34867518" className="social-media-el"><FontAwesomeIcon icon={faStrava} className="icon" /><p>Strava</p></a></li>
           </ul>
         </div>
 
