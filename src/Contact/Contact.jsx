@@ -2,11 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 import emailjsCreds from './emailjsCreds.js'
+import ShineStar from './ShineStar'
 
 import './contact.css'
 
 const Contact = () => {
-  const [emailStatus, setEmailStatus] = useState(null)
+  const [emailStatus, setEmailStatus] = useState()
   const form = useRef();
 
   useEffect(() => {
@@ -41,8 +42,8 @@ const Contact = () => {
         <button type="submit" className="submitButton">Send</button>
       </form>
 
-      { emailStatus === "SENT" && <p className="alertEmail">Sent!</p> }
-      { emailStatus === "ERROR" && <p className="alertEmail">Error!</p> }
+      { emailStatus === "SENT" && <ShineStar className="alertEmail" text={"Sent!"}/> }
+      { emailStatus === "ERROR" && <p className="alertEmail">Error! :(</p> }
 
 
 

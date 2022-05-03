@@ -16,7 +16,7 @@ const About = () => {
       <h1>Never stop dreaming, exploring, creating!</h1>
       <div className="container-flex container-about" >
         <div className="child-about">
-          <p>Engineer, entrepreneur and athlete... <strong>Ferdinand Clovis</strong> is not only a Magician but a unique creator merging Arts with extreme sports!</p>
+          <p>Engineer, entrepreneur and athlete... <strong>Ferdinand Clovis</strong> is not only a Magician but a unique creator, motivational speaker and influencer merging Arts with extreme sports, and has performed in more than 1000 performances in 50 countries over 20 years of staging!</p>
         </div>
         <Slideshow />
       </div>

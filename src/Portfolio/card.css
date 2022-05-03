@@ -172,6 +172,17 @@
   transition: opacity .2s, visibility .8s;
   opacity: 0;
 }
+.child-portfolio-textblock-open {
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  color: white;
+  left:0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 10px 0 10px;
+  transition: opacity .2s, visibility .8s;
+}
 
 .child-portfolio-videos-back {
   transform: rotateY(180deg);
@@ -188,7 +199,9 @@
 #card-deck:empty {
   display:none;
 }
-
+.child-portfolio-videos-card {
+  filter: brightness(69%);
+}
 
 .new-item:hover  .child-portfolio-textblock {
   opacity: 75%;
@@ -205,6 +218,7 @@
   transform: rotateY(-180deg);
 }
 
+
 .arrowDown {
   font-size: 40px;
   position: absolute;
@@ -220,6 +234,72 @@
 
 .arrowDown:hover {
   color: var(--color2);
+}
+
+/* The Modal (background) */
+.modal-card {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+.modal-card-content {
+  position:relative;
+  display:flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 100%;
+  max-height: 1px;
+  left: 50%;;
+  transform: translateX(-50%);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.modal-card-content .child-portfolio-videos-back-modal {
+  transform: rotateY(0deg);
+  animation: transform 5s;
+}
+
+
+.card-visible .child-portfolio-videos-front-modal  {
+  transform: rotateY(0deg);
+}
+.card-hidden .child-portfolio-videos-front-modal  {
+  transform: rotateY(-180deg);
+}
+
+.modal-card-img {
+  max-height: 80vh;
+  margin: 15% auto;
+}
+
+.modal-card-icon {
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+  position:absolute;
+  top: 10%;
+  padding: 1rem;
+}
+
+.modal-card-icon .icon {
+  color: var(--color3);
+  cursor: pointer;
+}
+.modal-card-icon:hover .icon {
+  color: var(--color2);
+}
+
+.card-in-modal {
+  margin-top: calc(50vh - 280px/2);
 }
 
 @keyframes bounce {

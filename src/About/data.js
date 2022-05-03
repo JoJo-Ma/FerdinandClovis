@@ -35,11 +35,11 @@ export default [
     img: '/static/images/II_Banderole/Banderole_7.jpg',
     imgPlaceholder: '/static/images/II_Banderole/Banderole_7_placeholder.jpg'
   },
-  {
-    text: '',
-    img: '/static/images/II_Banderole/Banderole_8.jpg',
-    imgPlaceholder: '/static/images/II_Banderole/Banderole_8_placeholder.jpg'
-  },
+  // {
+  //   text: '',
+  //   img: '/static/images/II_Banderole/Banderole_8.jpg',
+  //   imgPlaceholder: '/static/images/II_Banderole/Banderole_8_placeholder.jpg'
+  // },
   {
     text : '',
     img: '/static/images/II_Banderole/Banderole_9.jpg',
