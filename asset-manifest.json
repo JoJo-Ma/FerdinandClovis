@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/FerdinandClovis/static/css/main.ead63ced.css",
+    "main.js": "/FerdinandClovis/static/js/main.bb818cf1.js",
+    "static/media/JosefinSans-VariableFont_wght.ttf": "/FerdinandClovis/static/media/JosefinSans-VariableFont_wght.89302acc0a1111132060.ttf",
+    "index.html": "/FerdinandClovis/index.html",
+    "main.ead63ced.css.map": "/FerdinandClovis/static/css/main.ead63ced.css.map",
+    "main.bb818cf1.js.map": "/FerdinandClovis/static/js/main.bb818cf1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ead63ced.css",
+    "static/js/main.bb818cf1.js"
+  ]
+}
