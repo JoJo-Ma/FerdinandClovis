@@ -59,7 +59,7 @@ const PickACard = () => {
         deck.length !== 0
         ?
         deck.map((card) => {
-          return <LazyLoadImage className='pick-a-card-child' key={card.index} id={`pick-a-card-child${card.index}`} src={card.back} effect="opacity" alt="Ferdinand Clovis" onClick={() => handleClickPick(card.index)} />
+          return <LazyLoadImage className='pick-a-card-child' key={card.index} id={`pick-a-card-child${card.index}`} src={`${process.env.PUBLIC_URL}${card.back}`} effect="opacity" alt="Ferdinand Clovis" onClick={() => handleClickPick(card.index)} />
 
         })
         :
@@ -85,7 +85,7 @@ const PickACard = () => {
     {
       picked.reverse().map((card) => {
       return   <div className="child-portfolio-videos new-item">
-          <LazyLoadImage className="card child-portfolio-videos-card" src={card.front} effect="opacity" alt="Ferdinand Clovis" />
+          <LazyLoadImage className="card child-portfolio-videos-card" src={`${process.env.PUBLIC_URL}${card.front}`} effect="opacity" alt="Ferdinand Clovis" />
           <a href={card.ref} rel="noopener noreferrer" target="_blank" className="child-portfolio-textblock-open">{card.caption}</a>
         </div>
       })
@@ -97,8 +97,8 @@ const PickACard = () => {
       <div className="modal-card-content">
         <div className="modal-card-icon" ><FontAwesomeIcon icon={faClose} className="icon" onClick={closeModal}/></div>
         <div className={"child-portfolio-videos new-item card-in-modal "}>
-          <LazyLoadImage className={`child-portfolio-videos-front card`} src={pickedForModal.back} effect="opacity" alt="Ferdinand Clovis" />
-          <LazyLoadImage className={`child-portfolio-videos-back card`} effect="opacity" src={pickedForModal.front} alt="Backside of Flexbox playing card" />
+          <LazyLoadImage className={`child-portfolio-videos-front card`} src={`${process.env.PUBLIC_URL}${pickedForModal.back}`} effect="opacity" alt="Ferdinand Clovis" />
+          <LazyLoadImage className={`child-portfolio-videos-back card`} effect="opacity" src={`${process.env.PUBLIC_URL}${pickedForModal.front}`} alt="Backside of Flexbox playing card" />
           <a href={pickedForModal.ref} rel="noopener noreferrer" target="_blank" className="child-portfolio-textblock">{pickedForModal.caption}</a>
         </div>
       </div>

@@ -16,7 +16,7 @@ import {
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename={'/FerdinandClovis'}>
         <>
           <Routes>
             <Route path="/" element={<Home />}/>

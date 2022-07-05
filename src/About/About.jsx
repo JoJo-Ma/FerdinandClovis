@@ -4,8 +4,8 @@ import Slideshow from './Slideshow'
 import LazyBackroundImage from '../util/LazyBackroundImage'
 import './about.css'
 
-const background = "/static/images/III_Who_Are_We/about_background.jpg"
-const placeholder = "/static/images/III_Who_Are_We/about_background_placeholder.jpg"
+const background = `${process.env.PUBLIC_URL}/static/images/III_Who_Are_We/about_background.jpg`
+const placeholder = `${process.env.PUBLIC_URL}/static/images/III_Who_Are_We/about_background_placeholder.jpg`
 
 
 const About = () => {

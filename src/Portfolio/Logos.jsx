@@ -13,7 +13,7 @@ const Logos = () => {
           data.companyLogos.map(logo => {
             return (
               <div className="child-portfolio" key={logo.index}>
-                <LazyLoadImage src={logo.img} alt={logo.alt} effect="opacity" />
+                <LazyLoadImage src={`${process.env.PUBLIC_URL}${logo.img}`} alt={logo.alt} effect="opacity" />
               </div>
             )
           })
