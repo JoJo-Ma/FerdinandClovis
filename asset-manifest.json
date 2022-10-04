@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/FerdinandClovis/static/css/main.ead63ced.css",
-    "main.js": "/FerdinandClovis/static/js/main.ee9fc12f.js",
-    "static/media/JosefinSans-VariableFont_wght.ttf": "/FerdinandClovis/static/media/JosefinSans-VariableFont_wght.89302acc0a1111132060.ttf",
-    "index.html": "/FerdinandClovis/index.html",
-    "main.ead63ced.css.map": "/FerdinandClovis/static/css/main.ead63ced.css.map",
-    "main.ee9fc12f.js.map": "/FerdinandClovis/static/js/main.ee9fc12f.js.map"
+    "main.css": "/static/css/main.a7ea3482.css",
+    "main.js": "/static/js/main.90c8a48f.js",
+    "static/media/JosefinSans-VariableFont_wght.ttf": "/static/media/JosefinSans-VariableFont_wght.89302acc0a1111132060.ttf",
+    "index.html": "/index.html",
+    "main.a7ea3482.css.map": "/static/css/main.a7ea3482.css.map",
+    "main.90c8a48f.js.map": "/static/js/main.90c8a48f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ead63ced.css",
-    "static/js/main.ee9fc12f.js"
+    "static/css/main.a7ea3482.css",
+    "static/js/main.90c8a48f.js"
   ]
 }
