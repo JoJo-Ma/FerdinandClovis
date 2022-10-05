@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.a7ea3482.css",
-    "main.js": "/static/js/main.90c8a48f.js",
+    "main.js": "/static/js/main.ff431073.js",
     "static/media/JosefinSans-VariableFont_wght.ttf": "/static/media/JosefinSans-VariableFont_wght.89302acc0a1111132060.ttf",
     "index.html": "/index.html",
     "main.a7ea3482.css.map": "/static/css/main.a7ea3482.css.map",
-    "main.90c8a48f.js.map": "/static/js/main.90c8a48f.js.map"
+    "main.ff431073.js.map": "/static/js/main.ff431073.js.map"
   },
   "entrypoints": [
     "static/css/main.a7ea3482.css",
-    "static/js/main.90c8a48f.js"
+    "static/js/main.ff431073.js"
   ]
 }
