@@ -21,7 +21,6 @@ const Contact = () => {
   const sendEmail = (e) => {
   e.preventDefault();
 
-  console.log(form.current);
   emailjs.sendForm(emailjsCreds.serviceId, emailjsCreds.templateId, form.current, emailjsCreds.userId)
     .then((result) => {
         console.log(result.text);

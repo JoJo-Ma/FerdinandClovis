@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
         <div className="child-footer" id="houdini-quote">
           <h5><em>"Keep up your enthusiasm! There is nothing more contagious than exuberant enthusiasm."</em><br /></h5>
-          <h6>- Harry Houdini</h6>
+          <h6>- Harry Houdini &#x1fa84;</h6>
         </div>
         <div className="child-footer" id="social-media">
           <h5>Follow Ferdinand on social media</h5>

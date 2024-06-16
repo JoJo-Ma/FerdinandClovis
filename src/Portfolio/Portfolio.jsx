@@ -1,7 +1,6 @@
 import React from 'react';
 import PickACard from './PickACard'
 import Logos from './Logos'
-import { Link } from "react-router-dom"
 
 import './portfolio.css'
 
