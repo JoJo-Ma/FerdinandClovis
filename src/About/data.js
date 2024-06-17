@@ -4,7 +4,7 @@
 // +1000 performances in 50 countries
 // 20 years of staging
 
-export default [
+const data = [
   {
     text: 'Motivational speaker & influencer',
     img: '/static/images/II_Banderole/Banderole_1.jpg',
@@ -66,3 +66,5 @@ export default [
     imgPlaceholder: '/static/images/II_Banderole/Banderole_14_placeholder.jpg'
   },
 ]
+
+export default data;

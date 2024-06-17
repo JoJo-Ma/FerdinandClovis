@@ -1,4 +1,4 @@
-export default {
+const data = {
   cards: [
     {
       front: "/static/images/V_Portfolio/youtube2.png",
@@ -97,3 +97,6 @@ export default {
     }
   ]
 }
+
+
+export default data;

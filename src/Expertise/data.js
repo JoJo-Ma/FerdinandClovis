@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     index: 0,
     header: 'Corporates',
@@ -45,3 +45,5 @@ export default [
     opactiy: "0"
   },
 ]
+
+export default data;
