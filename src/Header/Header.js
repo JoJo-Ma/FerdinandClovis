@@ -5,8 +5,8 @@ import LazyBackroundImage from '../util/LazyBackroundImage'
 
 import './header.css'
 
-const background=`${process.env.PUBLIC_URL}/static/images/I_Header/header.jpg`
-const placeholder=`${process.env.PUBLIC_URL}/static/images/I_Header/header_placeholder.jpg`
+const background=`/static/images/I_Header/header.jpg`
+const placeholder=`/static/images/I_Header/header_placeholder.jpg`
 const backgroundOptions = "linear-gradient(to bottom, rgba(245, 246, 252, -1), var(--color1))"
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
       placeholder={placeholder}
       options={backgroundOptions}
     >
-      <LazyLoadImage src={`${process.env.PUBLIC_URL}/static/images/I_Header/signature.png`} alt="Ferdinand Clovis" id="signature" />
+      <LazyLoadImage src={`/static/images/I_Header/signature.png`} alt="Ferdinand Clovis" id="signature" />
     </LazyBackroundImage>
   )
 }

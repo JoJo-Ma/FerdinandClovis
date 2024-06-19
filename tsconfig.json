@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "rootDir": ".",
+        "target": "es6",
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "outDir": "dist",
+        "sourceMap": true,
+        "declaration": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strictPropertyInitialization": false,
+        "strict": true,
+        "incremental": true,
+        "importHelpers": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipDefaultLibCheck": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "es2020",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "composite": true,
+        "jsx": "react",
+    }
+}

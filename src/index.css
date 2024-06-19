@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Josefin Sans";
-  src: url('../public/static/fonts/JosefinSans-VariableFont_wght.ttf');
+  src: url('../static/fonts/JosefinSans-VariableFont_wght.ttf');
 }
 
 :root {

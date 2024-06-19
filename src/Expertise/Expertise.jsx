@@ -27,7 +27,7 @@ const Expertise = () => {
           services.map((el, index) => {
             return (
               <div className="child-expertise" key={index} onClick={() => handleClick(index)}>
-                  <LazyLoadImage className="img" src={`${process.env.PUBLIC_URL}${el.img}`} alt={el.header} placeholderSrc={`${process.env.PUBLIC_URL}${el.imgPlaceholder}`} effect="blur" />
+                  <LazyLoadImage className="img" src={`${el.img}`} alt={el.header} placeholderSrc={`${el.imgPlaceholder}`} effect="blur" />
                   <div className="child-expertise-textblock">
                     <h3 className={el.visibility} >{el.header}</h3>
                     <p className={el.visibility} style={{display:el.visibility, opacity:el.opacity, position:el.position}}>{el.text}</p>

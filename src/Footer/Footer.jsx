@@ -6,7 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import './footer.css'
 
-const whatsappContactImgUrl = `${process.env.PUBLIC_URL}/static/images/whatsapp_contact.jpg`
+const whatsappContactImgUrl = `/static/images/whatsapp_contact.jpg`
 
 
 const Footer = () => {
@@ -40,7 +40,7 @@ const Footer = () => {
     <>
       <div className="container-flex container-footer">
         <div className="child-footer">
-          <img src={`${process.env.PUBLIC_URL}/static/images/I_Header/signature.png`} alt="Ferdinand Clovis" id="signature" />
+          <img src={`/static/images/I_Header/signature.png`} alt="Ferdinand Clovis" id="signature" />
         </div>
         <div className="child-footer" id="houdini-quote">
           <h5><em>"Keep up your enthusiasm! There is nothing more contagious than exuberant enthusiasm."</em><br /></h5>

@@ -33,7 +33,7 @@ const Slideshow = () => {
         {
           data.map((el,index) => {
             return <div className="each-slide" key={index}>
-              <LazyBackroundImage source={`${process.env.PUBLIC_URL}${el.img}`} placeholder={el.imgPlaceholder} >
+              <LazyBackroundImage source={`${el.img}`} placeholder={el.imgPlaceholder} >
                 <span>{el.text}</span>
                 <span className="placeholder">placeholder</span>
               </LazyBackroundImage>
