@@ -1,14 +1,16 @@
 import React from 'react';
 
-import NavBar from './NavBar/NavBar'
-import Footer from './Footer/Footer'
+import NavBar from './NavBar/NavBar';
+import Footer from './Footer/Footer';
 
-const All = () => {
-  return (<>
-    <NavBar />
+function All() {
+    return (
+        <>
+            <NavBar />
 
-    <Footer />
-  </>)
+            <Footer />
+        </>
+    );
 }
 
 export default All;
