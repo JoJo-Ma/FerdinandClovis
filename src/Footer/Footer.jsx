@@ -69,7 +69,7 @@ function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ferdinand_clovis/?hl=en" className="social-media-el">
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/the_magic_runner/?hl=en" className="social-media-el">
                                 <FontAwesomeIcon icon={faInstagram} className="icon" />
                                 <p>Instagram</p>
                             </a>
