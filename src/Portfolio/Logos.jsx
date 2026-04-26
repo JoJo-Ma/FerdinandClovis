@@ -5,20 +5,18 @@ import data from './data.js';
 
 function Logos() {
     return (
-        <>
-            <h3>Like them: go further, go deeper, go beyong reality</h3>
-            <div className="container-flex">
-                {
-                    data.companyLogos.map((logo) => {
-                        return (
-                            <div className="child-portfolio" key={logo.index}>
-                                <LazyLoadImage src={`${logo.img}`} alt={logo.alt} effect="opacity" />
-                            </div>
-                        );
-                    })
-                }
+        <section className="logos-section">
+            <h3 className="logos-eyebrow">
+                Like them: go further, go deeper, go beyong reality
+            </h3>
+            <div className="logos-grid">
+                {data.companyLogos.map((logo) => (
+                    <div className="logos-grid-item" key={logo.index}>
+                        <LazyLoadImage src={logo.img} alt={logo.alt} effect="opacity" />
+                    </div>
+                ))}
             </div>
-        </>
+        </section>
     );
 }
 

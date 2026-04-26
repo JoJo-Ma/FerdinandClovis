@@ -1,35 +1,101 @@
-.transition-alt {
-  flex-flow: column;
-  justify-content: space-between;
+.transition-section {
+  background: var(--ink);
+  color: var(--cream-soft);
+  padding: clamp(6rem, 14vw, 11rem) clamp(1.5rem, 5vw, 5rem);
+  display: flex;
   align-items: center;
-  height: 700px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.transition-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(243, 233, 210, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.transition-figure {
+  position: relative;
   text-align: center;
-  background-color: black;
+  margin: 0;
+  max-width: 800px;
+  z-index: 1;
+}
+
+.transition-mark {
+  display: inline-block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--cream);
+  opacity: 0.55;
+  line-height: 0;
+  vertical-align: -0.15em;
+}
+
+.transition-mark-open {
+  margin-right: 0.15em;
+}
+
+.transition-mark-close {
+  margin-left: 0.1em;
+}
+
+.transition-quote {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5.2vw, 4.4rem);
+  line-height: 1.15;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  color: var(--cream-soft);
+  margin: 0;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.transition-quote .italic-accent {
+  position: relative;
+  display: inline-block;
+  color: var(--cream);
+  font-size: 1.18em;
+  padding: 0 0.08em;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 350;
+  letter-spacing: -0.01em;
+}
+
+.transition-quote .italic-accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(243, 233, 210, 0.12), transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.transition-quote .italic-accent::after {
+  content: "";
+  position: absolute;
+  left: -0.05em;
+  right: -0.05em;
+  bottom: 0.02em;
+  height: 0.18em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'><path d='M2,7 Q20,1 45,5 T85,4 Q105,3 118,6' stroke='%23f3e9d2' stroke-width='2.2' fill='none' stroke-linecap='round'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.transition-attribution {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-}
-
-
-.transition-alt #quote1 {
-  margin-top: 20px;
-  max-width: 500px;
-  font-size: 5rem;
-  line-height: 0.8;
-  color:white;
-}
-
-.transition-alt #quote2 {
-  margin-top: 20px;
-  max-width: 500px;
-  font-size: 1.3rem;
-  line-height: 0.8;
-  text-transform: none;
-  color:white;
-}
-
-.transition-alt i {
-  background-color:  var(--color2);
-  font-size: 5.3rem;
-  color: white;
-  font-family: "Snell Roundhand Script";
-  text-transform: capitalize;
+  color: var(--cream);
+  opacity: 0.65;
 }

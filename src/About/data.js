@@ -27,7 +27,7 @@ const data = [
     },
     {
         text: '',
-        img: '/static/images/II_Banderole/Banderole_6.jpg',
+        img: '/static/images/II_Banderole/Banderole_6.JPG',
         imgPlaceholder: '/static/images/II_Banderole/Banderole_6_placeholder.jpg',
     },
     {
@@ -57,7 +57,7 @@ const data = [
     },
     {
         text: '',
-        img: '/static/images/II_Banderole/Banderole_13.jpg',
+        img: '/static/images/II_Banderole/Banderole_13.JPG',
         imgPlaceholder: '/static/images/II_Banderole/Banderole_13_placeholder.jpg',
     },
     {

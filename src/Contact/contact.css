@@ -1,89 +1,264 @@
-#subscribe_form {
-  display:flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+.contact-section {
+  background: var(--ink);
+  color: var(--cream-soft);
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 90% 0%, rgba(243, 233, 210, 0.06), transparent 50%);
+  pointer-events: none;
+}
+
+.contact-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-aside .eyebrow {
+  color: var(--cream);
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.contact-headline {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  line-height: 1.05;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  margin: 0;
+  color: var(--cream-soft);
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.contact-headline .italic-accent {
+  color: var(--cream);
+}
+
+.contact-blurb {
+  margin-top: 1.6rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--cream);
+  opacity: 0.7;
+  max-width: 36ch;
+}
+
+.contact-form-wrap {
+  position: relative;
+  min-height: 380px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-input {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 1.6rem 0 0.6rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--cream-soft);
+  outline: none;
+  width: 100%;
+  letter-spacing: 0.01em;
+  resize: none;
+}
+
+.field--multiline .field-input {
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.field-input::placeholder {
+  color: transparent;
+}
+
+.field-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(243, 233, 210, 0.25);
+  pointer-events: none;
+}
+
+.field-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.field-input:focus ~ .field-line::after {
+  transform: scaleX(1);
+}
+
+.field-input.has-error ~ .field-line::after {
+  background: var(--error);
+  transform: scaleX(1);
+}
+
+.field-label {
+  position: absolute;
+  left: 0;
+  top: 1.6rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.55;
+  pointer-events: none;
+  transform-origin: left center;
+  transition: transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 350ms ease;
+}
+
+.field-input:focus ~ .field-label,
+.field-input.has-value ~ .field-label {
+  transform: translateY(-1.4rem) scale(0.78);
+  opacity: 1;
+}
+
+.field-error {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #ff8a80;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 0 40px;
+  gap: 1.4rem;
+  margin-top: 0.6rem;
 }
 
-.form-el, .submitButton {
-  height: 40px;
-  border: 1px solid var(--color3);
-  background-color:  white;
-  position: relative;
-  padding: 2px;
-  flex-grow: 1;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-indent: 1em;
-  font-family: "Josefin Sans",comic;
+.contact-submit {
+  appearance: none;
+  border: 1px solid var(--cream);
+  background: transparent;
+  color: var(--cream);
+  padding: 1rem 1.6rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0;
+  transition: background 250ms ease, color 250ms ease, opacity 250ms ease, transform 250ms ease;
 }
 
-#contact {
-  background-color: #1565c0;
-  padding: 70px 0 70px 0;
+.contact-submit:hover:not(:disabled) {
+  background: var(--cream);
+  color: var(--ink);
 }
 
-.form-el {
-  margin-right: 20px;
+.contact-submit:hover:not(:disabled) .contact-submit-arrow {
+  transform: translateX(6px);
 }
 
-
-.submitButton {
-  min-width: 150px;
-  transition: 250ms ease-in-out;
+.contact-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-.submitButton:hover {
-  background-color: var(--color3);
-  color: black;
+.contact-submit-arrow {
+  display: inline-block;
+  transition: transform 250ms ease;
 }
 
-.submitButton:active {
-  border: 1px solid white;
-  background-color: var(--color3);
-  color: white;
+.contact-error-msg {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #ff8a80;
 }
 
-.message {
-  flex-grow: 2;
+.contact-success {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-textarea {
-  resize: vertical;
+.contact-success-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--cream);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--cream);
 }
 
-.message > label {
-  padding-top : 7px;
+.contact-success-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.1;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  color: var(--cream-soft);
+  margin: 0;
 }
 
-.form-el::placeholder {
-  padding-top: 7px;
+.contact-success-body {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--cream);
+  opacity: 0.7;
+  margin: 0;
+  max-width: 40ch;
 }
 
-.alertEmail {
-  padding: 40px 0px;
-  margin: auto;
-  text-align: center;
-  color: #ffff;
-  position: relative;
-}
-
-
-@media only screen and (max-width: 850px) {
-  #subscribe_form {
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .form-el {
-    margin-right: 0px;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-
-  .alertEmail {
-    padding: 20px 0px;
+@media (max-width: 850px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }

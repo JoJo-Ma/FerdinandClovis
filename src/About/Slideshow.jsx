@@ -1,47 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import { Slide } from 'react-slideshow-image';
+import React, { useCallback, useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-import LazyBackroundImage from '../util/LazyBackroundImage';
-
-import 'react-slideshow-image/dist/styles.css';
 import './about.css';
 import data from './data.js';
 
 function Slideshow() {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: 'start',
+        skipSnaps: false,
+    });
+    const [selected, setSelected] = useState(0);
+    const [snaps, setSnaps] = useState([]);
+
+    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+    const scrollTo = useCallback(
+        (index) => emblaApi && emblaApi.scrollTo(index),
+        [emblaApi],
+    );
 
     useEffect(() => {
-        const changeWidth = () => {
-            setScreenWidth(window.innerWidth);
-        };
-        window.addEventListener('resize', changeWidth);
-
+        if (!emblaApi) return undefined;
+        const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
+        setSnaps(emblaApi.scrollSnapList());
+        onSelect();
+        emblaApi.on('select', onSelect);
+        emblaApi.on('reInit', onSelect);
         return () => {
-            window.removeEventListener('resize', changeWidth);
+            emblaApi.off('select', onSelect);
+            emblaApi.off('reInit', onSelect);
         };
-    }, [screenWidth]);
-
-    const style = screenWidth > 1100 ? { maxWidth: '750px' } : { maxWidth: `${0.9 * screenWidth}px`, height: `${(0.9 * screenWidth) / 1.5}px` };
+    }, [emblaApi]);
 
     return (
-        <div
-            className="slideshow-container child-about"
-            style={style}
-        >
-            <Slide easing="ease">
-                {
-                    data.map((el, index) => {
-                        return (
-                            <div className="each-slide" key={index}>
-                                <LazyBackroundImage source={`${el.img}`} placeholder={el.imgPlaceholder}>
-                                    <span>{el.text}</span>
-                                    <span className="placeholder">placeholder</span>
-                                </LazyBackroundImage>
-                            </div>
-                        );
-                    })
-                }
-            </Slide>
+        <div className="slideshow-container">
+            <div className="embla" ref={emblaRef}>
+                <div className="embla-track">
+                    {data.map((el) => (
+                        <div className="embla-slide" key={el.img}>
+                            <img
+                                src={el.img}
+                                alt={el.text || 'Ferdinand Clovis'}
+                                loading="lazy"
+                                className="embla-slide-img"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <button
+                type="button"
+                className="slideshow-arrow slideshow-arrow-prev"
+                aria-label="Previous slide"
+                onClick={scrollPrev}
+            >
+                <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+            <button
+                type="button"
+                className="slideshow-arrow slideshow-arrow-next"
+                aria-label="Next slide"
+                onClick={scrollNext}
+            >
+                <FontAwesomeIcon icon={faChevronRight} />
+            </button>
+
+            <ul className="embla-dots">
+                {snaps.map((_, idx) => (
+                    /* eslint-disable-next-line react/no-array-index-key */
+                    <li key={idx}>
+                        <button
+                            type="button"
+                            className={`embla-dot ${idx === selected ? 'is-selected' : ''}`}
+                            aria-label={`Go to slide ${idx + 1}`}
+                            onClick={() => scrollTo(idx)}
+                        />
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }

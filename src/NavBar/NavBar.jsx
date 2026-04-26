@@ -1,52 +1,58 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import './navbar.css';
 
+const NAV_LINKS = [
+    { to: '/#about', label: 'About' },
+    { to: '/#expertise', label: 'What I do' },
+    { to: '/#portfolio', label: 'Portfolio' },
+    { to: '/#contact', label: 'Contact' },
+];
+
 function NavBar() {
-    const [toggleMenu, setToggleMenu] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    const toggleNav = () => {
-        setToggleMenu(!toggleMenu);
-    };
-
-    const classNav = toggleMenu
-        ? 'visible'
-        : 'hidden';
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
-        <nav id="navigationBar">
-            {
-                (true) && (
-                    <ul id="sideNav" className={classNav}>
-                        <li onClick={toggleNav}>
-                            <Link to="/">HOME</Link>
-                        </li>
-                        <li onClick={toggleNav}>
-                            <HashLink smooth to="/#about">ABOUT US</HashLink>
-                        </li>
-                        <li onClick={toggleNav}>
-                            <HashLink smooth to="/#expertise">WHAT WE DO</HashLink>
-                        </li>
-                        <li onClick={toggleNav}>
-                            <HashLink smooth to="/#portfolio">CLIENTS & PORTFOLIO</HashLink>
-                        </li>
-                        <li onClick={toggleNav}>
-                            <HashLink smooth to="/#contact">CONTACT US</HashLink>
-                        </li>
-                    </ul>
-                )
-            }
-            <div className="button" onClick={toggleNav}>
-                { toggleMenu
-                    ? <FontAwesomeIcon icon={faAngleUp} />
-                    : <FontAwesomeIcon icon={faBars} />}
-            </div>
+        <nav id="navigationBar" className={`nav ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
+            <div className="nav-inner">
+                <Link to="/" className="nav-wordmark" onClick={() => setOpen(false)}>
+                    <span className="nav-wordmark-italic">F</span>
+                    erdinand
+                    {' '}
+                    Clovis
+                </Link>
 
+                <ul className="nav-links">
+                    {NAV_LINKS.map((link) => (
+                        <li key={link.label}>
+                            <HashLink smooth to={link.to} onClick={() => setOpen(false)}>
+                                {link.label}
+                            </HashLink>
+                        </li>
+                    ))}
+                </ul>
+
+                <button
+                    type="button"
+                    className="nav-toggle"
+                    onClick={() => setOpen((v) => !v)}
+                    aria-label={open ? 'Close menu' : 'Open menu'}
+                    aria-expanded={open}
+                >
+                    <FontAwesomeIcon icon={open ? faXmark : faBars} />
+                </button>
+            </div>
         </nav>
     );
 }

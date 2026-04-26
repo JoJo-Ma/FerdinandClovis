@@ -1,108 +1,163 @@
-import React, { useRef, useEffect } from 'react';
+import React, {
+    useRef, useEffect, useState,
+} from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFacebook, faWhatsapp, faYoutube, faInstagram, faLinkedin, faStrava,
 } from '@fortawesome/free-brands-svg-icons';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import './footer.css';
 
+const HOUDINI_LINES = [
+    'Keep up your enthusiasm.',
+    'There is nothing more contagious',
+    'than exuberant enthusiasm.',
+];
+
+const QUOTE_TEXT = HOUDINI_LINES.join(' ');
+
+const SOCIALS = [
+    { icon: faYoutube, href: 'https://www.youtube.com/channel/UCaqZexnOgRg9lpsYfV6PcxQ', label: 'YouTube' },
+    { icon: faInstagram, href: 'https://www.instagram.com/the_magic_runner/?hl=en', label: 'Instagram' },
+    { icon: faFacebook, href: 'https://www.facebook.com/FerdinandClovis/', label: 'Facebook' },
+    { icon: faLinkedin, href: 'https://hk.linkedin.com/in/ferdinandclovis', label: 'LinkedIn' },
+    { icon: faStrava, href: 'https://www.strava.com/athletes/34867518', label: 'Strava' },
+];
+
 const whatsappContactImgUrl = '/static/images/whatsapp_contact.jpg';
 
-function Footer() {
-    const modalRef = useRef(null);
+function TypingQuote() {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: '-15% 0px' });
+    const [displayed, setDisplayed] = useState('');
 
     useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-        function handleClickOutside(event) {
-            if (modalRef.current && modalRef.current === event.target) {
-                modalRef.current.style.display = 'none';
-            }
-        }
-        // Bind the event listener
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [modalRef]);
+        if (!inView) return undefined;
+        let i = 0;
+        const interval = setInterval(() => {
+            i += 1;
+            setDisplayed(QUOTE_TEXT.slice(0, i));
+            if (i >= QUOTE_TEXT.length) clearInterval(interval);
+        }, 28);
+        return () => clearInterval(interval);
+    }, [inView]);
 
-    const openModal = () => {
-        modalRef.current.style.display = 'block';
-    };
-    const closeModal = () => {
-        modalRef.current.style.display = 'none';
-    };
+    const isComplete = inView && displayed.length >= QUOTE_TEXT.length;
 
     return (
-        <>
-            <div className="container-flex container-footer">
-                <div className="child-footer">
-                    <img src="/static/images/I_Header/signature.png" alt="Ferdinand Clovis" id="signature" />
-                </div>
-                <div className="child-footer" id="houdini-quote">
-                    <h5>
-                        <em>
-                          &rdquo;Keep up your enthusiasm!
-                          There is nothing more contagious than exuberant enthusiasm.&rdquo;
-                        </em>
-                        <br />
-                    </h5>
-                    <h6>- Harry Houdini &#x1fa84;</h6>
-                </div>
-                <div className="child-footer" id="social-media">
-                    <h5>Follow Ferdinand on social media</h5>
-                    <ul>
-                        <li>
-                            <div className="social-media-el" onClick={openModal}>
-                                <FontAwesomeIcon icon={faWhatsapp} className="icon" />
-                                <p>Whatsapp</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a className="social-media-el" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCaqZexnOgRg9lpsYfV6PcxQ">
-                                <FontAwesomeIcon icon={faYoutube} className="icon" />
-                                <p>Youtube</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/the_magic_runner/?hl=en" className="social-media-el">
-                                <FontAwesomeIcon icon={faInstagram} className="icon" />
-                                <p>Instagram</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/FerdinandClovis/" className="social-media-el">
-                                <FontAwesomeIcon icon={faFacebook} className="icon" />
-                                <p>Facebook</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href="https://hk.linkedin.com/in/ferdinandclovis" className="social-media-el">
-                                <FontAwesomeIcon icon={faLinkedin} className="icon" />
-                                <p>Linkedin</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com/athletes/34867518" className="social-media-el">
-                                <FontAwesomeIcon icon={faStrava} className="icon" />
-                                <p>Strava</p>
-                            </a>
-                        </li>
-                    </ul>
+        <blockquote className="footer-quote" ref={ref}>
+            <span className="footer-quote-mark footer-quote-mark-open" aria-hidden="true">&ldquo;</span>
+            <span className="footer-quote-text">
+                {displayed}
+                {inView && displayed.length < QUOTE_TEXT.length && (
+                    <span className="footer-quote-cursor" aria-hidden="true" />
+                )}
+            </span>
+            <span
+                className={`footer-quote-mark footer-quote-mark-close ${isComplete ? 'is-visible' : ''}`}
+                aria-hidden="true"
+            >
+                &rdquo;
+            </span>
+        </blockquote>
+    );
+}
+
+function Footer() {
+    const [showWhatsapp, setShowWhatsapp] = useState(false);
+
+    return (
+        <footer className="footer-section">
+            <div className="footer-quote-wrap">
+                <span className="footer-rule" aria-hidden="true" />
+                <TypingQuote />
+                <cite className="footer-attribution">— Harry Houdini</cite>
+                <span className="footer-rule" aria-hidden="true" />
+            </div>
+
+            <div className="footer-meta">
+                <div className="footer-meta-block">
+                    <img
+                        src="/static/images/I_Header/signature.png"
+                        alt="Ferdinand Clovis"
+                        className="footer-signature"
+                    />
                 </div>
 
-            </div>
-            <div ref={modalRef} className="modal-whatsapp">
-                <div className="modal-whatsapp-content">
-                    <div className="modal-whatsapp-icon"><FontAwesomeIcon icon={faClose} className="icon" onClick={closeModal} /></div>
-                    <LazyLoadImage effect="opacity" src={whatsappContactImgUrl} alt="QR code whatsapp" className="modal-whatsapp-img" />
+                <div className="footer-meta-block footer-socials">
+                    <h5 className="footer-meta-eyebrow">Follow Ferdinand on social media</h5>
+                    <ul>
+                        <li>
+                            <button
+                                type="button"
+                                className="footer-social-link"
+                                onClick={() => setShowWhatsapp(true)}
+                            >
+                                <FontAwesomeIcon icon={faWhatsapp} />
+                                <span>Whatsapp</span>
+                            </button>
+                        </li>
+                        {SOCIALS.map((s) => (
+                            <li key={s.label}>
+                                <a
+                                    href={s.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="footer-social-link"
+                                >
+                                    <FontAwesomeIcon icon={s.icon} />
+                                    <span>{s.label}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
-        </>
+
+            <AnimatePresence>
+                {showWhatsapp && (
+                    <motion.div
+                        className="modal-whatsapp"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        onClick={() => setShowWhatsapp(false)}
+                        role="presentation"
+                    >
+                        <motion.div
+                            className="modal-whatsapp-content"
+                            initial={{ opacity: 0, scale: 0.92 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.92 }}
+                            transition={{ duration: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
+                            onClick={(e) => e.stopPropagation()}
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="WhatsApp QR code"
+                        >
+                            <button
+                                type="button"
+                                className="modal-whatsapp-close"
+                                onClick={() => setShowWhatsapp(false)}
+                                aria-label="Close"
+                            >
+                                <FontAwesomeIcon icon={faXmark} />
+                            </button>
+                            <LazyLoadImage
+                                effect="opacity"
+                                src={whatsappContactImgUrl}
+                                alt="QR code WhatsApp"
+                                className="modal-whatsapp-img"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </footer>
     );
 }
 

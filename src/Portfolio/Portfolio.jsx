@@ -6,14 +6,19 @@ import './portfolio.css';
 
 function Portfolio() {
     return (
-        <div id="portfolio">
-            <h2>A rich portfolio of experiences, events and performances</h2>
+        <section id="portfolio" className="portfolio-section">
+            <div className="portfolio-head">
+                <h2 className="portfolio-headline">
+                    A rich portfolio of experiences,
+                    {' '}
+                    <em className="italic-accent">events</em>
+                    {' '}
+                    and performances
+                </h2>
+            </div>
             <PickACard />
             <Logos />
-            {/* <div className="view-all">
-        <Link id="view-all-link" to="/all">View all</Link>
-      </div> */}
-        </div>
+        </section>
     );
 }
 
