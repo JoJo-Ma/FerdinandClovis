@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
@@ -98,7 +98,6 @@ function Field({
 }
 
 function Contact() {
-    const formRef = useRef(null);
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
@@ -150,10 +149,16 @@ function Contact() {
         }
 
         setStatus('sending');
-        emailjs.sendForm(
+        emailjs.send(
             emailjsCreds.serviceId,
             emailjsCreds.templateId,
-            formRef.current,
+            {
+                // keys must match the variables in the EmailJS template
+                user_name: values.name.trim(),
+                user_email: values.email.trim(),
+                reply_to: values.email.trim(),
+                message: values.message.trim(),
+            },
             emailjsCreds.userId,
         ).then(
             () => setStatus('sent'),
@@ -187,7 +192,6 @@ function Contact() {
                         ) : (
                             <motion.form
                                 key="form"
-                                ref={formRef}
                                 className="contact-form"
                                 noValidate
                                 onSubmit={handleSubmit}
